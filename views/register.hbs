@@ -1,0 +1,24 @@
+<div class="formlogin">
+    <p class="h1-login text-primary">Đăng ký</p>
+    <div class="loginform">
+        <form action="/register" method="POST" autocomplete="off">
+            {{#if msg}}
+                <p class="text-danger">{{{msg}}}</p>
+            {{/if}}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nhập lại password</label>
+                <input type="password" name="password2" class="form-control" id="exampleFormControlInput1" placeholder="Nhập lại password">
+            </div>
+            <Button type="submit" class="btnlogin">Đăng ký</Button>
+            <p class="textlogin">Bạn đã có tài khoản ? <a href="/login">Đăng nhập</a></p>
+        </form>
+    </div>
+</div>

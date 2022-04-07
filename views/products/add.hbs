@@ -1,0 +1,45 @@
+<div class="adddata">
+    <h3>Add Data</h3>
+    <form action="" method="POST">
+        {{#if msg}}
+            <p class="text-danger">{{{msg}}}</p>
+            {{/if}}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tên truyện</label>
+            <input type="text" name="tentruyen" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <span class="form-label">Nội dung</span>
+            <input type="text" name="noidung" class="form-control" aria-label="With textarea" placeholder="Nội dung"></input>
+        </div>
+        <label>Ảnh</label>
+        <div>
+            <input type="file" id="image"  onchange="previewFile()" multiple /> <br><br>
+<!--            <img id="img_preview" src="" height="200" alt="Image preview...">  <br>-->
+            <input type="hidden" name="anh_truyen" id="anh_truyen">
+        </div>
+        <br>
+        <Button type="submit" class="btn btn-primary">Thêm</Button>
+        <a href="/products" class="btn btn-primary">List</a>
+    </form>
+
+</div>
+<script>
+    function previewFile() {
+        // const preview = document.querySelector('#img_preview');
+        const file =  document.querySelector('#image').files[0];
+        const anh_truyen = document.querySelector('#anh_truyen');
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            // convert image file to base64 string
+            // preview.src = reader.result;
+            anh_truyen.value = reader.result;// cái này để post lên server
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

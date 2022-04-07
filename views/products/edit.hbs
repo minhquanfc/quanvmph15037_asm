@@ -1,0 +1,47 @@
+<div class="adddata">
+    <h3>Edit Data</h3>
+    <form action="" method="POST" autocomplete="off">
+        {{#if msg}}
+            <p>{{{msg}}}</p>
+        {{/if}}
+        {{!-- ///them id  --}}
+        <input type="hidden" name="id" value="{{itemBook._id}}">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tên truyện</label>
+            <input type="text" name="tentruyen" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Name" value="{{itemBook.tentruyen}}">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Nội dung</span>
+            <input name="noidung" value="{{itemBook.noidung}}"  class="form-control" aria-label="With textarea"></textarea>
+        </div>
+        <label>Ảnh</label>
+        <div>
+                <input type="file" id="image"  onchange="previewFile()"  /> <br><br>
+                <img id="img_preview" src="{{itemBook.anh_truyen}}" height="200" alt="Image preview...">  <br>
+                <input type="hidden" name="anh_truyen" id="anh_truyen">
+        </div>
+        <br>
+        <Button type="submit" class="btn btn-primary">Edit</Button>
+        <a href="/products" class="btn btn-primary">List</a>
+    </form>
+
+</div>
+<script>
+    function previewFile() {
+        const preview = document.querySelector('#img_preview');
+        const file =  document.querySelector('#image').files[0];
+        const anh_truyen = document.querySelector('#anh_truyen');
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            // convert image file to base64 string
+            preview.src = reader.result;
+            anh_truyen.value = reader.result;// cái này để post lên server
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

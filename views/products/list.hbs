@@ -1,0 +1,39 @@
+<div class="datalist">
+    <div class="col-12" id="headerlist">
+        <div class="">
+            <a href="/products/add" class="btn btn-primary">Add Data</a>
+
+            <form class="d-flex" id="timkiem">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="tables">
+        <h3>List Data</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Nội dung</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each listBook}}
+                <tr>
+                    <td scope="row">{{this._id}}</td>
+                    <td scope="row">{{this.tentruyen}}</td>
+                    <td>{{this.noidung}}</td>
+                    <td>
+                        <a href="/products/edit/{{this._id}}" class="btn btn-primary" id="btnAction">Edit</a>
+                        <a href="/products/delete/{{this._id}}" onclick="return confirm('Bạn có muốn xóa không?')" id="btnAction" class="btn btn-danger">Del</a>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

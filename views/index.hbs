@@ -1,0 +1,26 @@
+<div class="col-12 font-home">
+    <div class="col-md-6 gb-primary">
+        <h1 class="h1-home">Đọc Truyện Online hay nhất</h1>
+        <p class="fontchu">Đọc truyện online hay nhất, đọc truyện chữ, truyện mới. Tổng hợp và cập nhật liên tục, đầy đủ nhất.
+        </p>
+    </div>
+    <div class="btn-home">
+        <a href="/login" class="btn btn-primary">Sign in</a>
+        <a href="/register" class="btn btn-outline-primary">Sign Up</a>
+    </div>
+</div>
+<div class="list-home">
+    <h3 style="margin-top: 50px;margin-left: 35px;padding-top: 10px">Truyện mới nhất <span class="badge bg-danger">New</span></h3>
+    <div class="rows row-cols-1 row-cols-md-3 g-4" id="truyen-home">
+        {{#each listBook}}
+            <div class="card" style="width: 18rem;" id="card-home">
+                <img src="{{this.anh_truyen}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.tentruyen}}</h5>
+                    <p class="card-text">Đọc truyện onl</p>
+                    <a href="/products/post/{{this._id}}" class="btn btn-primary">Xem thêm</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
