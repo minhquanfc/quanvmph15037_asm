@@ -1,4 +1,5 @@
 var bookModel = require('../models/book.model');
+var userModel = require('../models/user.model');
 const BookModel = require("../models/book.model");
 exports.GetAll = async (req,res,next)=>{
     var listTruyen = await bookModel.find();
@@ -15,4 +16,10 @@ exports.GetOne = async (req,res,next)=>{
         res.send('Khong tim thay')
     }
     res.json(itemBook);
+}
+
+//get user
+exports.GetUsers = async (req,res,next)=>{
+    var listUser = await userModel.find();
+    res.json(listUser);
 }
