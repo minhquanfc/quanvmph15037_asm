@@ -5,8 +5,10 @@ mongoose.connect(url);
 
 const  bookSchema = new mongoose.Schema({
     tentruyen:'String',
+    tacgia:'String',
     noidung:'String',
-    anh_truyen:'String'
+    anh_truyen:'String',
+    anh_truyen_chitiet: [String]
 });
 //dinh nghia xong 1 vai schema
 //tao ra 1 ban sao bookshema

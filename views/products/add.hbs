@@ -10,6 +10,11 @@
                    placeholder="Name">
         </div>
         <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tác giả</label>
+            <input type="text" name="tacgia" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Tác giả">
+        </div>
+        <div class="mb-3">
             <span class="form-label">Nội dung</span>
             <input type="text" name="noidung" class="form-control" aria-label="With textarea" placeholder="Nội dung"></input>
         </div>
@@ -17,7 +22,7 @@
         <div>
             <input type="file" id="image"  onchange="previewFile()" multiple /> <br><br>
 <!--            <img id="img_preview" src="" height="200" alt="Image preview...">  <br>-->
-            <input type="hidden" name="anh_truyen" id="anh_truyen">
+            <input type="hidden" name="anh_truyen" id="anh_truyen" multiple>
         </div>
         <br>
         <Button type="submit" class="btn btn-primary">Thêm</Button>

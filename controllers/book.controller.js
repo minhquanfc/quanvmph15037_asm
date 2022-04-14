@@ -8,12 +8,13 @@ exports.getFormAdd = (req, res, next) => {
 
 exports.postAddBook = (req, res, next) => {
     console.log(req.body);
-    if (req.body.tentruyen.length==0 && req.body.noidung.length==0){
+    if (req.body.tentruyen.length==0 && req.body.noidung.length==0 && req.body.tacgia == 0){
         return res.render('./products/add',{msg:'Vui lòng không để trống'})
     }
     //tao doi tuong de gan du lieu user gui len server
     const objBook = new BookModel({
         tentruyen:req.body.tentruyen,
+        tacgia:req.body.tacgia,
         noidung:req.body.noidung,
         anh_truyen:req.body.anh_truyen
     });
@@ -63,6 +64,7 @@ exports.postEdit=(req,res,next)=>{
     }
     let du_lieu = {
         tentruyen: req.body.tentruyen,
+        tacgia:req.body.tacgia,
         noidung: req.body.noidung,
         anh_truyen:req.body.anh_truyen
     }

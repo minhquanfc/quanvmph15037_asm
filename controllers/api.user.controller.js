@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const bcrypt = require("bcrypt");
+const {token} = require("morgan");
 
 exports.postReg=async (req,res,next)=>{
     try {
@@ -30,4 +31,28 @@ exports.postLogin= async (req,res,next)=>{
 }
 exports.getProfile = (req,res,next) =>{
     res.send(req.user)
+}
+// logout
+exports.postLogout = async  (req,res,next)=>{
+    try {
+        req.user.tokens = req.user.tokens.filter((token)=>{
+            return token.token != req.token
+        })
+        await req.user.save()
+        res.send("Logout thành công")
+    } catch (error){
+        console.log(error)
+        res.status(500).send(error)
+    }
+}
+//logout all thiet bi
+exports.postLogoutAll = async (req,res,next)=>{
+    try {
+        req.user.tokens.splice(0,req.user.tokens.length)
+        await  req.user.save()
+        res.send("Logout all")
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error);
+    }
 }

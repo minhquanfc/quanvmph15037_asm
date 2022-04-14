@@ -11,6 +11,11 @@
             <input type="text" name="tentruyen" class="form-control" id="exampleFormControlInput1"
                    placeholder="Name" value="{{itemBook.tentruyen}}">
         </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tác giả</label>
+            <input type="text" name="tacgia" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Name" value="{{itemBook.tacgia}}">
+        </div>
         <div class="input-group">
             <span class="input-group-text">Nội dung</span>
             <input name="noidung" value="{{itemBook.noidung}}"  class="form-control" aria-label="With textarea"></textarea>
@@ -19,7 +24,8 @@
         <div>
                 <input type="file" id="image"  onchange="previewFile()"  /> <br><br>
                 <img id="img_preview" src="{{itemBook.anh_truyen}}" height="200" alt="Image preview...">  <br>
-                <input type="hidden" name="anh_truyen" id="anh_truyen">
+            <a href="/products/upload/{{itemBook._id}}" class="btn btn-light">Thêm ảnh</a>
+
         </div>
         <br>
         <Button type="submit" class="btn btn-primary">Edit</Button>
