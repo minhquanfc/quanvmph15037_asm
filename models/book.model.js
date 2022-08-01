@@ -8,7 +8,7 @@ const  bookSchema = new mongoose.Schema({
     tacgia:'String',
     noidung:'String',
     anh_truyen:'String',
-    anh_truyen_chitiet: [String]
+    anh_truyen_chitiet: []
 });
 //dinh nghia xong 1 vai schema
 //tao ra 1 ban sao bookshema
