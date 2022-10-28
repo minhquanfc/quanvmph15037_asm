@@ -15,7 +15,7 @@ exports.GetOne = async (req,res,next)=>{
     if (itemBook==null){
         res.send('Khong tim thay')
     }
-    res.json(itemBook);
+    res.send(itemBook);
 }
 
 //get user
